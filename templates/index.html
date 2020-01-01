@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link href="../static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+ <div class="login">
+	<h1>House Price Prediction</h1>
+    <div style="background-image: url('images.jpg');">
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="MSSubClass" placeholder="MSSubClass - The building class" required="required" />
+        <input type="text" name="LotFrontage" placeholder="LotFrontage - Linear feet of street connected to property" required="required" />
+		<input type="text" name="LotArea" placeholder="LotArea - Lot size in square feet" required="required" />
+    	<input type="text" name="OverallQual" placeholder="OverallQual - Overall material and finish quality" required="required" />
+        <input type="text" name="OverallCond" placeholder="OverallCond - Overall condition rating" required="required" />
+		<input type="text" name="YearBuilt" placeholder="YearBuilt - Original construction date" required="required" />    	
+		<input type="text" name="YearRemodAdd" placeholder="YearRemodAdd - Remodel date" required="required" />
+        <input type="text" name="BsmtFinSF1" placeholder="BsmtFinSF1 - Type 1 finished square feet" required="required" />
+		<input type="text" name="BsmtFinSF2" placeholder="BsmtFinSF2 - Type 2 finished square feet" required="required" />    	
+		<input type="text" name="BsmtUnfSF" placeholder="BsmtUnfSF -Unfinished square feet of basement area" required="required" />
+        <input type="text" name="TotalBsmtSF" placeholder="TotalBsmtSF - Total square feet of basement area" required="required" />
+		<input type="text" name="1stFlrSF" placeholder="1stFlrSF - First Floor square feet" required="required" />    	
+		<input type="text" name="2ndFlrSF" placeholder="2ndFlrSF - Second floor square feet" required="required" />
+        <input type="text" name="GrLivArea" placeholder="GrLivArea - Above grade (ground) living area square feet" required="required" />
+		<input type="text" name="BsmtFullBath" placeholder="BsmtFullBath - Basement full bathrooms" required="required" />    	
+		<input type="text" name="BsmtHalfBath" placeholder="BsmtHalfBath - Basement half bathrooms" required="required" />
+        <input type="text" name="FullBath" placeholder="Full bathrooms above grade" required="required" />
+		<input type="text" name="HalfBath" placeholder="HalfBath - Half baths above grade" required="required" />    	
+		<input type="text" name="Bedroom" placeholder="Number of bedrooms above basement level" required="required" />
+        <input type="text" name="Kitchen" placeholder=" Number of kitchen" required="required" />
+		<input type="text" name="TotRmsAbvGrd" placeholder="Total rooms above grade (does not include bathrooms)" required="required" />    	
+		<input type="text" name="GarageYrBlt" placeholder=": Year garage was built" required="required" />
+        <input type="text" name="GarageCars" placeholder="GarageCars - Size of garage in car capacity" required="required" />
+		<input type="text" name="GarageArea" placeholder="Size of garage in square feet" required="required" />    	
+		<input type="text" name="WoodDeckSF" placeholder="Wood deck area in square feet" required="required" />
+        <input type="text" name="ScreenPorch" placeholder="Screen porch area in square feet" required="required" />
+		<input type="text" name="PoolArea" placeholder="Pool area in square feet" required="required" />    	
+        <input type="text" name="MoSold" placeholder="Month Sold" required="required" />
+		<input type="text" name="YrSold" placeholder="Year Sold" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
