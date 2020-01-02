@@ -10,21 +10,17 @@
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-<link href="../static/css/style.css" rel="stylesheet">
-<style>
-.responsive {
-  width: 100%;
-  height: auto;
-}
-</style>
+<!--<link href="../static/css/style.css" rel="stylesheet">-->
+
 </head>
 
 <body>
- <div class="login">
+ <div align="center">
 	<h1>House Price Prediction</h1>
-    <div style="background-image: url('images.jpg');">
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
+    
+    <div style="height:270px;width:500px;overflow:auto;align:center">
     	<input type="text" name="MSSubClass" placeholder="MSSubClass - The building class" required="required" />
         <input type="text" name="LotFrontage" placeholder="LotFrontage - Linear feet of street connected to property" required="required" />
 		<input type="text" name="LotArea" placeholder="LotArea - Lot size in square feet" required="required" />
@@ -54,8 +50,12 @@
 		<input type="text" name="PoolArea" placeholder="Pool area in square feet" required="required" />    	
         <input type="text" name="MoSold" placeholder="Month Sold" required="required" />
 		<input type="text" name="YrSold" placeholder="Year Sold" required="required" />
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </div>
+    <p>
+    <button style="height:40px;width:80px;"type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </p>
     </form>
+
 
    <br>
    <br>
